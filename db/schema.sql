@@ -33,9 +33,9 @@ CREATE TABLE comment(
 id INTEGER NOT NULL auto_increment primary KEY,
 comment_text VARCHAR(1000),
 user_id INTEGER NOT NULL,
-drink_id INTEGER NOT NULL,
-CONSTRAINT user_id_const FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,
-CONSTRAINT drink_id_const FOREIGN KEY (drink_id) REFERENCES cocktail_list(id)
+drink_id INTEGER NOT NULL
+-- CONSTRAINT user_id_const FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,
+-- CONSTRAINT drink_id_const FOREIGN KEY (drink_id) REFERENCES cocktail_list(id)
 );
 USE cocktails;
 
@@ -43,41 +43,8 @@ CREATE TABLE starred_cocktails(
 id INTEGER NOT NULL auto_increment primary KEY,
 star_number INTEGER NOT NULL, 
 user_id INTEGER NOT NULL,
-drink_id INTEGER NOT NULL, 
-CONSTRAINT user_const FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,
-CONSTRAINT drink_const FOREIGN KEY (drink_id) REFERENCES cocktail_list(id)
+drink_id INTEGER NOT NULL
+-- CONSTRAINT user_const FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,
+-- CONSTRAINT drink_const FOREIGN KEY (drink_id) REFERENCES cocktail_list(id)
 );
-
-INSERT INTO `cocktails`.`users`
-(`user_name`,`email`,`password`) VALUES('woffordlm','luke@gmail.com','password');
-INSERT INTO `cocktails`.`users`
-(`user_name`,`email`,`password`) VALUES('kana85','kana@gmail.com','password123');
-INSERT INTO `cocktails`.`users`
-(`user_name`,`email`,`password`) VALUES('demarco89','mike@gmail.com','password321');
-INSERT INTO `cocktails`.`users`
-(`user_name`,`email`,`password`) VALUES('elvis32','elvis@gmail.com','password45');
-INSERT INTO `cocktails`.`users`
-(`user_name`,`email`,`password`) VALUES('idared','ida@gmail.com','password54');
-
-INSERT INTO `cocktails`.`comment`(`id`,`comment_text`,`user_id`,`drink_id`)
-VALUES(1,"super tasty",1,1);
-INSERT INTO `cocktails`.`comment`(`id`,`comment_text`,`user_id`,`drink_id`)
-VALUES(2,"sorta tasty",2,2);
-INSERT INTO `cocktails`.`comment`(`id`,`comment_text`,`user_id`,`drink_id`)
-VALUES(3,"gross",3,3);
-INSERT INTO `cocktails`.`comment`(`id`,`comment_text`,`user_id`,`drink_id`)
-VALUES(4,"remminds me of my childhood",4,4);
-INSERT INTO `cocktails`.`comment`(`id`,`comment_text`,`user_id`,`drink_id`)
-VALUES(5,"reminds me of my 21st",5,5);
-
-INSERT INTO `cocktails`.`starred_cocktails`(`id`,`star_number`,`user_id`,`drink_id`)
-VALUES(1,5,1,1);
-INSERT INTO `cocktails`.`starred_cocktails`(`id`,`star_number`,`user_id`,`drink_id`)
-VALUES(2,4,2,2);
-INSERT INTO `cocktails`.`starred_cocktails`(`id`,`star_number`,`user_id`,`drink_id`)
-VALUES(3,4,3,3);
-INSERT INTO `cocktails`.`starred_cocktails`(`id`,`star_number`,`user_id`,`drink_id`)
-VALUES(4,1,4,4);
-INSERT INTO `cocktails`.`starred_cocktails`(`id`,`star_number`,`user_id`,`drink_id`)
-VALUES(5,2,5,5);
 
